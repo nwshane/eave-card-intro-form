@@ -1,5 +1,7 @@
+import Card from './Card'
+
 export default ({changePhoneNumber, phoneNumber, goToNextCard}) => (
-  <div>
+  <Card goToNextCard={goToNextCard}>
     <form>
       <input
         id='phone_number_input'
@@ -8,11 +10,5 @@ export default ({changePhoneNumber, phoneNumber, goToNextCard}) => (
         onChange={changePhoneNumber}
       />
     </form>
-    <button
-      className='js-next-page-button'
-      onClick={goToNextCard}
-    >
-      Next Page
-    </button>
-  </div>
+  </Card>
 )
