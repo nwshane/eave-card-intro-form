@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import NameCard from './NameCard'
+import PhoneNumberCard from './PhoneNumberCard'
 import Results from './Results'
 
 class IntroForm extends Component {
@@ -7,20 +8,29 @@ class IntroForm extends Component {
     super()
     this.state = {
       name: '',
+      phoneNumber: '',
       card: 0
     }
     this.changeName = this.changeName.bind(this)
+    this.changePhoneNumber = this.changePhoneNumber.bind(this)
     this.goToNextCard = this.goToNextCard.bind(this)
   }
 
   cards = [
     'name',
+    'phoneNumber',
     'results'
   ]
 
   changeName (e) {
     this.setState({
       name: e.target.value
+    })
+  }
+
+  changePhoneNumber (e) {
+    this.setState({
+      phoneNumber: e.target.value
     })
   }
 
@@ -44,9 +54,17 @@ class IntroForm extends Component {
             goToNextCard={this.goToNextCard}
           />
         )}
+        {this.getCurrentCard() === 'phoneNumber' && (
+          <PhoneNumberCard
+            phoneNumber={this.state.phoneNumber}
+            changePhoneNumber={this.changePhoneNumber}
+            goToNextCard={this.goToNextCard}
+          />
+        )}
         {this.getCurrentCard() === 'results' && (
           <Results
             name={this.state.name}
+            phoneNumber={this.state.phoneNumber}
           />
         )}
       </div>
