@@ -1,7 +1,7 @@
 export default ({changeName, name, goToNextCard}) => (
   <form>
     <div>
-      <label for='name_input'>
+      <label htmlFor='name_input'>
         What's your name?
       </label>
     </div>

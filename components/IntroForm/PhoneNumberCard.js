@@ -1,7 +1,7 @@
 export default ({changePhoneNumber, phoneNumber, goToNextCard}) => (
   <form>
     <div>
-      <label for='phone_number_input'>
+      <label htmlFor='phone_number_input'>
         What's your phone number?
       </label>
     </div>
