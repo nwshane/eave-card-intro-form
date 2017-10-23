@@ -1,14 +1,15 @@
 export default ({changeName, name, goToNextCard}) => (
-  <div>
-    Welcome!
-    <hr />
-    <form>
-      <input
-        id='name_input'
-        name='name'
-        value={name}
-        onChange={changeName}
-      />
-    </form>
-  </div>
+  <form>
+    <div>
+      <label for='name_input'>
+        What's your name?
+      </label>
+    </div>
+    <input
+      id='name_input'
+      name='name'
+      value={name}
+      onChange={changeName}
+    />
+  </form>
 )
