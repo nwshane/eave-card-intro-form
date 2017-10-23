@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 
-describe('User on form page', () => {
-  test('can fill out form and see results', async function () {
+describe('Home Page', () => {
+  test('Has correct title', async function () {
     const browser = await puppeteer.launch()
     try {
       const page = await browser.newPage()
