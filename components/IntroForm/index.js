@@ -2,6 +2,7 @@ import {Component} from 'react'
 import NameCard from './NameCard'
 import PhoneNumberCard from './PhoneNumberCard'
 import Results from './Results'
+import FormCard from './FormCard'
 
 class IntroForm extends Component {
   constructor () {
@@ -14,6 +15,7 @@ class IntroForm extends Component {
     this.changeName = this.changeName.bind(this)
     this.changePhoneNumber = this.changePhoneNumber.bind(this)
     this.goToNextCard = this.goToNextCard.bind(this)
+    this.goToPreviousCard = this.goToPreviousCard.bind(this)
   }
 
   cards = [
@@ -40,6 +42,12 @@ class IntroForm extends Component {
     })
   }
 
+  goToPreviousCard () {
+    this.setState({
+      card: this.state.card - 1
+    })
+  }
+
   getCurrentCard () {
     return this.cards[this.state.card]
   }
@@ -48,24 +56,34 @@ class IntroForm extends Component {
     return (
       <div>
         {this.getCurrentCard() === 'name' && (
-          <NameCard
-            name={this.state.name}
-            changeName={this.changeName}
-            goToNextCard={this.goToNextCard}
-          />
+          <FormCard goToNextCard={this.goToNextCard}>
+            <NameCard
+              name={this.state.name}
+              changeName={this.changeName}
+              goToNextCard={this.goToNextCard}
+            />
+          </FormCard>
         )}
         {this.getCurrentCard() === 'phoneNumber' && (
-          <PhoneNumberCard
-            phoneNumber={this.state.phoneNumber}
-            changePhoneNumber={this.changePhoneNumber}
+          <FormCard
             goToNextCard={this.goToNextCard}
-          />
+            goToPreviousCard={this.goToPreviousCard}
+          >
+            <PhoneNumberCard
+              phoneNumber={this.state.phoneNumber}
+              changePhoneNumber={this.changePhoneNumber}
+            />
+          </FormCard>
         )}
         {this.getCurrentCard() === 'results' && (
-          <Results
-            name={this.state.name}
-            phoneNumber={this.state.phoneNumber}
-          />
+          <FormCard
+            goToPreviousCard={this.goToPreviousCard}
+          >
+            <Results
+              name={this.state.name}
+              phoneNumber={this.state.phoneNumber}
+            />
+          </FormCard>
         )}
       </div>
     )

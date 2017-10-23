@@ -1,7 +1,14 @@
-export default ({children, goToNextCard}) => (
+export default ({children, goToPreviousCard, goToNextCard}) => (
   <div>
     <div>
-      
+      {goToPreviousCard && (
+        <button
+          className='js-previous-page-button'
+          onClick={goToPreviousCard}
+        >
+          Previous Card
+        </button>
+      )}
     </div>
     {children}
     <div>
@@ -10,7 +17,7 @@ export default ({children, goToNextCard}) => (
           className='js-next-page-button'
           onClick={goToNextCard}
         >
-          Next Page
+          Next Card
         </button>
       )}
     </div>
