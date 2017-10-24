@@ -22,14 +22,14 @@ export default ({phoneNumber, changePhoneNumber, goToPreviousCard, goToNextCard}
     <div>
       <div>
         <label htmlFor='phone_number_input'>
-          What's your phone number?
+          Thanks!<br />How about your phone number?
         </label>
       </div>
       <TextField
         id='phone_number_input'
         name='phone_number'
         value={phoneNumber}
-        floatingLabelText='Please enter your phone number.'
+        floatingLabelText='Please enter 10 more digits.'
         onChange={changePhoneNumber}
       />
     </div>
