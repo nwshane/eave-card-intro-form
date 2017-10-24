@@ -73,6 +73,11 @@ class IntroForm extends Component {
     return (
       <div>
         {this.getCurrentCard()}
+        <style jsx>{`
+          div {
+            margin-top: 50px;
+          }
+        `}</style>
       </div>
     )
   }
