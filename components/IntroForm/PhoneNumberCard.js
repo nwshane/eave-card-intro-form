@@ -20,13 +20,9 @@ export default ({phoneNumber, changePhoneNumber, goToPreviousCard, goToNextCard}
         onChange={changePhoneNumber}
       />
     </div>
-    <div>
-      <NextCardButton
-        onClick={goToNextCard}
-      >
-        Next Card
-      </NextCardButton>
-    </div>
+    <NextCardButton
+      onClick={goToNextCard}
+    />
     <style jsx>{`
       section {
         display: flex;
