@@ -1,3 +1,5 @@
+import TextField from 'material-ui/TextField'
+
 export default ({phoneNumber, changePhoneNumber, goToPreviousCard, goToNextCard}) => (
   <section>
     <div>
@@ -14,7 +16,7 @@ export default ({phoneNumber, changePhoneNumber, goToPreviousCard, goToNextCard}
           What's your phone number?
         </label>
       </div>
-      <input
+      <TextField
         id='phone_number_input'
         name='phone_number'
         value={phoneNumber}
