@@ -1,8 +1,7 @@
 import {Component} from 'react'
 import NameCard from './NameCard'
 import PhoneNumberCard from './PhoneNumberCard'
-import Results from './Results'
-import FormCard from './FormCard'
+import ResultsCard from './ResultsCard'
 
 class IntroForm extends Component {
   constructor () {
@@ -71,7 +70,7 @@ class IntroForm extends Component {
           />
         )}
         {this.getCurrentCard() === 'results' && (
-          <Results
+          <ResultsCard
             name={this.state.name}
             phoneNumber={this.state.phoneNumber}
             goToPreviousCard={this.goToPreviousCard}
