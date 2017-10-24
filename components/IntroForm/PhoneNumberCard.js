@@ -2,8 +2,20 @@ import TextField from 'material-ui/TextField'
 import PreviousCardButton from './PreviousCardButton'
 import NextCardButton from './NextCardButton'
 
+const validPhoneNumberChars = (str) => (
+  /^[\d\s\-]+$/.test(str)
+)
+
+const numberCount = (str) => (
+  str.replace(/\D/g, '').length
+)
+
+const isValidPhoneNumber = (phoneNumber) => (
+  numberCount(phoneNumber) >= 10 && validPhoneNumberChars(phoneNumber)
+)
+
 export default ({phoneNumber, changePhoneNumber, goToPreviousCard, goToNextCard}) => (
-  <section>
+  <form onSubmit={goToNextCard}>
     <div>
       <PreviousCardButton onClick={goToPreviousCard} />
     </div>
@@ -17,18 +29,21 @@ export default ({phoneNumber, changePhoneNumber, goToPreviousCard, goToNextCard}
         id='phone_number_input'
         name='phone_number'
         value={phoneNumber}
+        floatingLabelText='Please enter your phone number.'
         onChange={changePhoneNumber}
       />
     </div>
     <NextCardButton
+      type='submit'
       onClick={goToNextCard}
+      disabled={!isValidPhoneNumber(phoneNumber)}
     />
     <style jsx>{`
-      section {
+      form {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
     `}</style>
-  </section>
+  </form>
 )

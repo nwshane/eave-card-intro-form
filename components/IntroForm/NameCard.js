@@ -1,12 +1,25 @@
 import TextField from 'material-ui/TextField'
 import NextCardButton from './NextCardButton'
 
-const isValidName = (name) => (
-  name.length >= 0 && name.trim().split(' ').length >= 2
+const onlyLetters = (str) => (
+  /^[a-zA-Z\s]+$/.test(str)
 )
 
+const multipleWords = (str) => (
+  str.trim().split(' ').length >= 2
+)
+
+const isValidName = (name) => (
+  name.length >= 0 && multipleWords(name) && onlyLetters(name)
+)
+
+const onSubmit = (callback) => (event) => {
+  event.preventDefault()
+  callback()
+}
+
 export default ({name, changeName, goToNextCard}) => (
-  <section>
+  <form onSubmit={goToNextCard}>
     <div />
     <div>
       <div>
@@ -24,16 +37,17 @@ export default ({name, changeName, goToNextCard}) => (
     </div>
     <div>
       <NextCardButton
+        type='submit'
         disabled={!isValidName(name)}
         onClick={goToNextCard}
       />
     </div>
     <style jsx>{`
-      section {
+      form {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
     `}</style>
-  </section>
+  </form>
 )

@@ -35,7 +35,8 @@ class IntroForm extends Component {
     })
   }
 
-  goToNextCard () {
+  goToNextCard (event) {
+    event.preventDefault()
     this.setState({
       card: this.state.card + 1
     })
