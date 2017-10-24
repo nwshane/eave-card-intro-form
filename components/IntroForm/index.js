@@ -15,13 +15,9 @@ class IntroForm extends Component {
     this.changePhoneNumber = this.changePhoneNumber.bind(this)
     this.goToNextCard = this.goToNextCard.bind(this)
     this.goToPreviousCard = this.goToPreviousCard.bind(this)
+    this.getCards = this.getCards.bind(this)
+    this.getCurrentCard = this.getCurrentCard.bind(this)
   }
-
-  cards = [
-    'name',
-    'phoneNumber',
-    'results'
-  ]
 
   changeName (e) {
     this.setState({
@@ -48,35 +44,35 @@ class IntroForm extends Component {
     })
   }
 
+  getCards () {
+    return [
+      <NameCard
+        name={this.state.name}
+        changeName={this.changeName}
+        goToNextCard={this.goToNextCard}
+      />,
+      <PhoneNumberCard
+        goToNextCard={this.goToNextCard}
+        goToPreviousCard={this.goToPreviousCard}
+        phoneNumber={this.state.phoneNumber}
+        changePhoneNumber={this.changePhoneNumber}
+      />,
+      <ResultsCard
+        name={this.state.name}
+        phoneNumber={this.state.phoneNumber}
+        goToPreviousCard={this.goToPreviousCard}
+      />
+    ]
+  }
+
   getCurrentCard () {
-    return this.cards[this.state.card]
+    return this.getCards()[this.state.card]
   }
 
   render () {
     return (
       <div>
-        {this.getCurrentCard() === 'name' && (
-          <NameCard
-            name={this.state.name}
-            changeName={this.changeName}
-            goToNextCard={this.goToNextCard}
-          />
-        )}
-        {this.getCurrentCard() === 'phoneNumber' && (
-          <PhoneNumberCard
-            goToNextCard={this.goToNextCard}
-            goToPreviousCard={this.goToPreviousCard}
-            phoneNumber={this.state.phoneNumber}
-            changePhoneNumber={this.changePhoneNumber}
-          />
-        )}
-        {this.getCurrentCard() === 'results' && (
-          <ResultsCard
-            name={this.state.name}
-            phoneNumber={this.state.phoneNumber}
-            goToPreviousCard={this.goToPreviousCard}
-          />
-        )}
+        {this.getCurrentCard()}
       </div>
     )
   }
