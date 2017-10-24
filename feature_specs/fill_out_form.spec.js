@@ -5,8 +5,11 @@ describe('User on form page', () => {
     const exampleName1 = 'Mickey Mouse'
     const examplePhoneNumber1 = '1232343456'
 
-    const exampleName2 = 'Lana Lana'
-    const examplePhoneNumber2 = '8983432314'
+    const exampleNameChange = 'A'
+    const examplePhoneNumberChange= '7'
+
+    const exampleName2 = exampleNameChange + exampleName1
+    const examplePhoneNumber2 = examplePhoneNumberChange + examplePhoneNumber1 
 
     const browser = await puppeteer.launch()
     try {
@@ -30,12 +33,10 @@ describe('User on form page', () => {
       await page.click('.js-previous-page-button')
       await page.click('.js-previous-page-button')
 
-      await page.evaluate(() => document.querySelector('#name_input').value = '')
-      await page.type('#name_input', exampleName2)
+      await page.type('#name_input', exampleNameChange)
       await page.click('.js-next-page-button')
 
-      await page.evaluate(() => document.querySelector('#phone_number_input').value = '')
-      await page.type('#phone_number_input', examplePhoneNumber2)
+      await page.type('#phone_number_input', examplePhoneNumberChange)
       await page.click('.js-next-page-button')
 
       expect(

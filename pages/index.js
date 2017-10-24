@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import IntroForm from '../components/IntroForm'
+import withMaterialUi from '../components/withMaterialUi'
 
-export default () => (
+const HomePage = () => (
   <div>
     <Head>
       <title>Three Card Flow</title>
@@ -23,3 +24,5 @@ export default () => (
     `}</style>
   </div>
 )
+
+export default withMaterialUi(HomePage)

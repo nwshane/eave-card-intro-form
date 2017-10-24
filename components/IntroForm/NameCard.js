@@ -1,3 +1,5 @@
+import TextField from 'material-ui/TextField'
+
 export default ({name, changeName, goToNextCard}) => (
   <section>
     <div />
@@ -7,7 +9,7 @@ export default ({name, changeName, goToNextCard}) => (
           What's your name?
         </label>
       </div>
-      <input
+      <TextField
         id='name_input'
         name='name'
         value={name}
