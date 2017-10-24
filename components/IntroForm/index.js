@@ -71,14 +71,11 @@ class IntroForm extends Component {
           />
         )}
         {this.getCurrentCard() === 'results' && (
-          <FormCard
+          <Results
+            name={this.state.name}
+            phoneNumber={this.state.phoneNumber}
             goToPreviousCard={this.goToPreviousCard}
-          >
-            <Results
-              name={this.state.name}
-              phoneNumber={this.state.phoneNumber}
-            />
-          </FormCard>
+          />
         )}
       </div>
     )
