@@ -1,15 +1,40 @@
-export default ({changePhoneNumber, phoneNumber, goToNextCard}) => (
-  <form>
+export default ({phoneNumber, changePhoneNumber, goToPreviousCard, goToNextCard}) => (
+  <section>
     <div>
-      <label htmlFor='phone_number_input'>
-        What's your phone number?
-      </label>
+      <button
+        className='js-previous-page-button'
+        onClick={goToPreviousCard}
+      >
+        Previous Card
+      </button>
     </div>
-    <input
-      id='phone_number_input'
-      name='phone_number'
-      value={phoneNumber}
-      onChange={changePhoneNumber}
-    />
-  </form>
+    <div>
+      <div>
+        <label htmlFor='phone_number_input'>
+          What's your phone number?
+        </label>
+      </div>
+      <input
+        id='phone_number_input'
+        name='phone_number'
+        value={phoneNumber}
+        onChange={changePhoneNumber}
+      />
+    </div>
+    <div>
+      <button
+        className='js-next-page-button'
+        onClick={goToNextCard}
+      >
+        Next Card
+      </button>
+    </div>
+    <style jsx>{`
+      section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    `}</style>
+  </section>
 )

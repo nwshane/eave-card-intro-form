@@ -63,15 +63,12 @@ class IntroForm extends Component {
           />
         )}
         {this.getCurrentCard() === 'phoneNumber' && (
-          <FormCard
+          <PhoneNumberCard
             goToNextCard={this.goToNextCard}
             goToPreviousCard={this.goToPreviousCard}
-          >
-            <PhoneNumberCard
-              phoneNumber={this.state.phoneNumber}
-              changePhoneNumber={this.changePhoneNumber}
-            />
-          </FormCard>
+            phoneNumber={this.state.phoneNumber}
+            changePhoneNumber={this.changePhoneNumber}
+          />
         )}
         {this.getCurrentCard() === 'results' && (
           <FormCard
