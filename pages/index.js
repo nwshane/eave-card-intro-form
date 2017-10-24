@@ -14,7 +14,7 @@ const HomePage = () => (
         padding: 0 15px;
         max-width: 1000px;
         margin: 0 auto;
-        font-size: 2rem;
+        font-size: 3rem;
       }
     `}</style>
     <style jsx global>{`
