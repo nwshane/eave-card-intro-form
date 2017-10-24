@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Header from '../components/Header'
 import IntroForm from '../components/IntroForm'
 import withMaterialUi from '../components/withMaterialUi'
 
@@ -8,6 +9,7 @@ const HomePage = () => (
       <title>Three Card Flow</title>
     </Head>
 
+    <Header />
     <IntroForm />
     <style jsx>{`
       div {
