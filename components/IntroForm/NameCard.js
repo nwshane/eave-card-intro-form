@@ -20,9 +20,7 @@ export default ({name, changeName, goToNextCard}) => (
     <div>
       <NextCardButton
         onClick={goToNextCard}
-      >
-        Next Card
-      </NextCardButton>
+      />
     </div>
     <style jsx>{`
       section {
