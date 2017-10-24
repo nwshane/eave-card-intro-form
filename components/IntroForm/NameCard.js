@@ -1,4 +1,5 @@
 import TextField from 'material-ui/TextField'
+import NextCardButton from './NextCardButton'
 
 export default ({name, changeName, goToNextCard}) => (
   <section>
@@ -17,12 +18,11 @@ export default ({name, changeName, goToNextCard}) => (
       />
     </div>
     <div>
-      <button
-        className='js-next-page-button'
+      <NextCardButton
         onClick={goToNextCard}
       >
         Next Card
-      </button>
+      </NextCardButton>
     </div>
     <style jsx>{`
       section {
